@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="has-background-link-light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whether Weather</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+  <script src="https://kit.fontawesome.com/2a7d899223.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  {% if link %}
+  <link rel="stylesheet" type="text/css" href="{{ link }} ">
+  {% endif %}
+  <script type="text/javascript" src="/js/bulma.js"></script>
+  <script type="text/javascript" src="/data/weather_data.js"></script>
+  <script type="text/javascript" src="/images/images_data.js"></script>
+  <script type="text/javascript" src="/js/conversions.js"></script>
+  <script type="text/javascript" src="/js/starFavorite.js"></script>
+  <script type="text/javascript" src="/js/whether-weather-space.js"></script>
+  <script type="text/javascript" src="/js/components/weather-card.js"></script>
+  {% if script %}
+  <script src="{{ script }}"></script>
+  {% endif %}
+</head>
+
+<body class="has-navbar-fixed-top">
+  {% include "nav.njk" %}
+  <!-- Main container - This webpage will be based on blocks ( Bulma columns & column layout ) -->
+  <main class="has-background-link-light mb-5 mt-5">
+    {% include "header.njk" %}
+    {{ content | safe }}
+  </main>
+  {% include "footer.njk" %}
+</body>
+
+</html>

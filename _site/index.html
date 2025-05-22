@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="has-background-link-light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Whether Weather</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo.png" />
+  <script src="https://kit.fontawesome.com/2a7d899223.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  
+  <script type="text/javascript" src="/js/bulma.js"></script>
+  <script type="text/javascript" src="/data/weather_data.js"></script>
+  <script type="text/javascript" src="/images/images_data.js"></script>
+  <script type="text/javascript" src="/js/conversions.js"></script>
+  <script type="text/javascript" src="/js/starFavorite.js"></script>
+  <script type="text/javascript" src="/js/whether-weather-space.js"></script>
+  <script type="text/javascript" src="/js/components/weather-card.js"></script>
+  
+  <script src="/js/city-focus.js"></script>
+  
+</head>
+
+<body class="has-navbar-fixed-top">
+  <nav class="navbar has-background-black is-fixed-top">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <img src="/images/logo.png" alt="Logo" />
+    </a>
+    <span class="navbar-burger has-background-black" data-target="navbarMenu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </span>
+  </div>
+  <div id="navbarMenu" class="navbar-menu">
+    <div class="navbar-end has-background-black">
+      <!-- Home will be the city focus page, on the first time the page loads up, it will have a default value, after that, every time the user changes the city through the dropdown menu, the initial default value will be replaced by the city chosen, and it will persists, until it is changed again, it will always persist the last city visited -->
+      <a href="/" class="navbar-item has-text-white">
+        Home
+      </a>
+      <a href="/dashboard" class="navbar-item has-text-white">
+        Dashboard
+      </a>
+      <a href="/preferences" class="navbar-item has-text-white">
+        Settings
+      </a>
+    </div>
+  </div>
+</nav>
+  <!-- Main container - This webpage will be based on blocks ( Bulma columns & column layout ) -->
+  <main class="has-background-link-light mb-5 mt-5">
+    <header id=header-container class="columns is-multiline is-vcentered is-centered">
+  <!-- Logo column -->
+  <article id="left-side-header" class="column is-narrow">
+    <figure class="image is-inline-block ">
+      <img id="logo-hero" src="/images/logo.png">
+    </figure>
+  </article>
+  <!-- Main Title Column -->
+  <article id="middle-header" class="column is-narrow">
+    <div class="has-text-centered">
+      <div class="title-with-dropdown">
+  <p class="layer-1-title is-size-1 has-text-black has-text-weight-bold">
+    <span id="city"></span>
+    <span id="dropdown-icon" class="icon is-small is-size-5">
+      <i class="fas fa-angle-down" aria-hidden="true"></i>
+    </span>
+    <div id="star-container">
+      <button>
+        <span id="star-icon" class="icon is-small is-size-5">
+          <i id="fave-" class="fa-regular fa-star"></i>
+        </span>
+      </button>
+    </div>
+  </p>
+  <div class="layer-2-dropdown">
+    <select id="select-city" class="styled-select" onchange="updateWeather(this.value);">
+      <option value="/?city=amsterdam">Amsterdam</option>
+      <option value='/?city=berlin'>Berlin</option>
+      <option value="/?city=copenhagen">Copenhagen</option>
+      <option value="/?city=cork">Cork</option>
+      <option value="/?city=new_york">New York</option>
+      <option value="/?city=paris">Paris</option>
+      <option value="/?city=san_francisco">San Francisco</option>
+      <option value="/?city=tromso">Tromso</option>
+      <option value="/?city=waterford">Waterford</option>
+    </select>
+  </div>
+</div>
+<p class="is-block is-size-1 has-text-black">Today</p>
+    </div>
+  </article>
+  <!-- Generic side pane, it is removed from all pages by default, and each page can display it again and update the contents as they wish. -->
+  <article id="right-side-header" class="column is-narrow">
+    <div class="right-now-box box has-text-centered has-background-warning-light has-text-black">
+  <p class="is-size-4 has-text-black">Right Now <span id="right-now-time"></span></p>
+  <div class="columns is-2">
+    <!-- Right Now Temp Column -->
+    <div class="column">
+      <p class="is-size-5 has-text-black">Temp</p>
+      <p class="is-size-5 has-text-black"><span id="right-now-temp"></span></p>
+    </div>
+    <!-- Right Now Wind Column -->
+    <div class="column ">
+      <p class="is-size-5 has-text-black">Wind</p>
+      <p class="is-size-5 has-text-black"><span id="right-now-wind"></span></p>
+    </div>
+  </div>
+</div>
+  </article>
+</header>
+    <!-- 2nd row - Today's weather with icon, max temp and max wind stats -->
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="columns is-vcentered">
+      <!-- Today's Weather Icon -->
+      <div class="column has-text-centered">
+        <div>
+          <figure class="image is-inline-block ">
+            <img id="weather-icon" alt="Weather forecast icon">
+          </figure>
+        </div>
+      </div>
+      <!-- Today's Weather Temperature -->
+      <div class="column">
+        <div class="has-text-centered">
+          <p class="is-size-3 has-text-black">Max Temp</p>
+          <p class="is-size-3 has-text-black"><span id="max-temp"></span></p>
+        </div>
+      </div>
+      <!-- Today's Weather Wind -->
+      <div class="column">
+        <div class="has-text-centered">
+          <p class="is-size-3 has-text-black">Max Wind</p>
+          <p class="is-size-3 has-text-black"><span id=max-wind></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 3rd row - 7 days weather stats - This will be load up by JavaScript -->
+<div class="columns">
+  <div class="column is-10 is-offset-1">
+    <div class="columns daily-stats-container is-multiline is-centered">
+      <!-- Child elements will be appended by JavaScript by querySelector(".daily-stats-container") -->
+    </div>
+  </div>
+</div>
+  </main>
+  <footer class="footer has-background-black has-text-white">
+  <div class="container">
+    <div class="content has-text-centered">
+      <img id="footer-img" class="image is-inline" src="/images/logo.png" alt="Whether weather logo">
+      <p class="is-inline">
+        (Whether)Weather - Your.Weather
+      </p>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

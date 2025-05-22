@@ -1,0 +1,15 @@
+---
+layout: layout.njk
+script: /js/dashboard.js
+link: /css/dashboard.css
+middleHeader: dashboard-middle-header.njk
+rightSideHeader: blank-right-side-header.njk
+---
+<!-- 3rd row - 7 days weather stats - This will be load up by JavaScript -->
+<div class="columns">
+  <div class="column is-6 is-offset-3">
+    <div class="columns daily-stats-container is-multiline is-centered">
+      <!-- Child elements will be appended by JavaScript by querySelector(".daily-stats-container") -->
+    </div>
+  </div>
+</div>

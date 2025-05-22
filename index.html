@@ -1,0 +1,43 @@
+---
+layout: layout.njk
+script: /js/city-focus.js
+middleHeader: city-focus-middle-header.njk
+rightSideHeader: city-focus-right-side-header.njk
+---
+<!-- 2nd row - Today's weather with icon, max temp and max wind stats -->
+<div class="columns">
+  <div class="column is-three-fifths is-offset-one-fifth">
+    <div class="columns is-vcentered">
+      <!-- Today's Weather Icon -->
+      <div class="column has-text-centered">
+        <div>
+          <figure class="image is-inline-block ">
+            <img id="weather-icon" alt="Weather forecast icon">
+          </figure>
+        </div>
+      </div>
+      <!-- Today's Weather Temperature -->
+      <div class="column">
+        <div class="has-text-centered">
+          <p class="is-size-3 has-text-black">Max Temp</p>
+          <p class="is-size-3 has-text-black"><span id="max-temp"></span></p>
+        </div>
+      </div>
+      <!-- Today's Weather Wind -->
+      <div class="column">
+        <div class="has-text-centered">
+          <p class="is-size-3 has-text-black">Max Wind</p>
+          <p class="is-size-3 has-text-black"><span id=max-wind></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 3rd row - 7 days weather stats - This will be load up by JavaScript -->
+<div class="columns">
+  <div class="column is-10 is-offset-1">
+    <div class="columns daily-stats-container is-multiline is-centered">
+      <!-- Child elements will be appended by JavaScript by querySelector(".daily-stats-container") -->
+    </div>
+  </div>
+</div>

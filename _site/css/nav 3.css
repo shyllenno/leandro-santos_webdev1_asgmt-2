@@ -1,0 +1,10 @@
+/* CSS to deal with nav styles */
+
+/* Sets the width of the main weather image (Bulma goes only up to 128px) */
+#weather-icon {
+  width: 250px;
+}
+
+a.navbar-item:hover{
+  color: black !important;
+}
