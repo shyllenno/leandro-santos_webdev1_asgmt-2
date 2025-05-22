@@ -7,7 +7,7 @@ const isMph = localStorage.getItem("mph") ? localStorage.getItem("mph") : "true"
 // Converts the degree from Celsius to Fahrenheit if that is toggled
 function getDegree(temperature){
   if(isFahrenheit === "true"){
-    return temperature * 9 / 5 + 32 + "ºF";
+    return (temperature * 9 / 5 + 32).toFixed(2) + "ºF";
   } else {
     return temperature + "ºC";
   }
