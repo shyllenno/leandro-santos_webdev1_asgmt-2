@@ -1,38 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Appends the toggle button to each city in the data
+  // Appends the toggle buttons to each city in the data in the set favourites panel
   appendToggleCities();
 
   // Adds the click event in each toggle button
   addEventSetFaveOnClick();
 
+  // Appends the toggle buttons to the set preference panel
+  appendTogglePreferences();
+
 });
 
-
+/*
+  ############## SET FAVOURITES CITIES ##############
+*/
 // Global variable to hold a set of uniques cities based on the weather_data.js
 const cities = new Set;
 Object.keys(weatherData).forEach(city => {
-  cities[
-      city.replace(/_daily|_hourly/g, "")] =
-    city.replace(/_daily|_hourly/g, "").replace("_", " ")
+  cities[city.replace(/_daily|_hourly/g, "")] =
+    city.replace(/_daily|_hourly/g, "")
+    .replace("_", " ")
     .replace(/\b\w/g, char => char.toUpperCase());
 });
 
 
-// Function to append the toggle buttons to each city in the data
+// Function to append the toggle buttons to each city in the data in the set favourites panel
 function appendToggleCities() {
 
   const setFavouritesContainer = document.getElementById("set-favourites-container");
 
   Object.entries(cities).sort().forEach( ([key, value]) => {
-    setFavouritesContainer.innerHTML += `
-      <div class="city-toggle-container">
-      <label class="switch" for="cb-${key}">
-        <input type="checkbox" id="cb-${key}"><span class="slider round"></span>
-      </label>
-      <p class="toggle-label">${value}</p>
-      </div>
-  `;
+    setFavouritesContainer.appendChild(whetherWeatherSpace.components.toggleButton(key, value));
   });
 };
 
@@ -45,7 +43,7 @@ function addEventSetFaveOnClick() {
 
     const state = localStorage.getItem(`${key}`);
 
-    cb.checked = state == "true";
+    cb.checked = state === "true";
 
     cb.addEventListener("click", () => {
       console.log(cb.checked);
@@ -53,3 +51,29 @@ function addEventSetFaveOnClick() {
     });
   });
 };
+
+/*
+  ############## SET PREFERENCES ##############
+*/
+
+// Function to append the toggle buttons to set preferences panel
+function appendTogglePreferences(){
+  const setPreferencesContainer = document.getElementById("set-preferences-container");
+
+  // Sets the Fahrenheit toggle button
+  setPreferencesContainer.appendChild(whetherWeatherSpace.components.toggleButton("fahrenheit", "Show temperatures as ºF"));
+  fahrenheitToggle = document.getElementById("cb-fahrenheit");
+
+  // Gets gets the state of the toggle
+  fahrenheitToggle.checked = localStorage.getItem("pref-fahrenheit") === "true";
+
+  // Adds the event listener on click
+  fahrenheitToggle.addEventListener("click", ()=>{localStorage.setItem("pref-fahrenheit", fahrenheitToggle.checked);});
+
+
+  // Sets the MPH toggle button
+  setPreferencesContainer.appendChild(whetherWeatherSpace.components.toggleButton("mph", "Show wind speeds as MPH"));
+  mphToggle = document.getElementById("cb-mph");
+  mphToggle.checked = localStorage.getItem("pref-mph") === "true";
+  mphToggle.addEventListener("click", ()=>{localStorage.setItem("pref-mph", mphToggle.checked);});
+}

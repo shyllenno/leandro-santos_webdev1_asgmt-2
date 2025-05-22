@@ -1,8 +1,8 @@
 /* JS for global conversions such as Celsius to Faherint and Km/h to Mph */
 
-// Get local storage settings for degrees and speed measurements
-const isFahrenheit = localStorage.getItem("fahrenheit") ? localStorage.getItem("fahrenheit") : "true";
-const isMph = localStorage.getItem("mph") ? localStorage.getItem("mph") : "true";
+// Get local storage settings for degrees and speed measurements (it will default to false if the local storage keys where not found)
+const isFahrenheit = localStorage.getItem("pref-fahrenheit") ? localStorage.getItem("pref-fahrenheit") : "false";
+const isMph = localStorage.getItem("pref-mph") ? localStorage.getItem("pref-mph") : "false";
 
 // Converts the degree from Celsius to Fahrenheit if that is toggled
 function getDegree(temperature){

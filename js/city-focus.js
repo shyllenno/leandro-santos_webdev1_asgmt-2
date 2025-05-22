@@ -15,8 +15,10 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* On the first load, it will load the "Amsterdam" data, Celsius degrees and Km/h as default, thereafter, 
-  the last city loaded will be stored in the local storage, and it will be retrieved on the next load.*/
+  /*
+  On the first load, it will load the "Amsterdam" data, thereafter, the last city loaded will be stored
+  in the local storage, and it will be retrieved on the next load.
+  */
   const lastCity = localStorage.getItem("lastCity") ? localStorage.getItem("lastCity") : "amsterdam";
 
   /* If the page comes from the dashboard, it will come with url parameters */

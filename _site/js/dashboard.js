@@ -47,7 +47,10 @@ function addEventGoToCityOnClick() {
 function appendFaveBox() {
   const cities = new Set();
   Object.entries(localStorage).forEach(([key, value]) => {
-    cities[key] = value;
+    // This IF Statement excludes the local storage keys that are attributed to the preferences pane
+    if( !key.startsWith("pref-") ){
+      cities[key] = value;
+    }
   });
 
   dailyForecastContainer = document.querySelector('.daily-stats-container');

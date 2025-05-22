@@ -71,7 +71,7 @@ input:checked + .slider:before {
 }
 
 
-.city-toggle-container{
+.toggle-container{
   display: flex;
   padding: 5px;
   align-items: center;
