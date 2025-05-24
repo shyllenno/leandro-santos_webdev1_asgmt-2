@@ -130,7 +130,7 @@ Object.keys(weatherData)
 
 function appendDailyStats() {
 
-  dailyForecastContainer = document.querySelector('.daily-stats-container');
+  dailyForecastContainer = document.querySelector('.weather-stats-container');
 
   for (let i = 0; i < 7; i++) {
     dailyForecastContainer.appendChild(whetherWeatherSpace.components.singleCard(i));

@@ -14,6 +14,7 @@
   <link rel="stylesheet" type="text/css" href="/css/dashboard.css ">
   
   <script type="text/javascript" src="/js/bulma.js"></script>
+  <script type="text/javascript" src="/js/nav.js"></script>
   <script type="text/javascript" src="/data/weather_data.js"></script>
   <script type="text/javascript" src="/images/images_data.js"></script>
   <script type="text/javascript" src="/js/conversions.js"></script>
@@ -21,6 +22,7 @@
   <script type="text/javascript" src="/js/whether-weather-space.js"></script>
   <script type="text/javascript" src="/js/components/weather-card.js"></script>
   <script type="text/javascript" src="/js/components/toggle-button.js"></script>
+  <script type="text/javascript" src="/js/components/star-icon.js"></script>
   
   <script src="/js/dashboard.js"></script>
   
@@ -45,10 +47,10 @@
       <a href="/" class="navbar-item has-text-white">
         Home
       </a>
-      <a href="/dashboard" class="navbar-item has-text-white">
+      <a href="/dashboard/" class="navbar-item has-text-white">
         Dashboard
       </a>
-      <a href="/preferences" class="navbar-item has-text-white">
+      <a href="/preferences/" class="navbar-item has-text-white">
         Settings
       </a>
     </div>
@@ -58,13 +60,13 @@
   <main class="has-background-link-light mb-5 mt-5">
     <header id=header-container class="columns is-multiline is-vcentered is-centered">
   <!-- Logo column -->
-  <article id="left-side-header" class="column is-narrow">
+  <article id="left-side-header" class="column is-3">
     <figure class="image is-inline-block ">
       <img id="logo-hero" src="/images/logo.png">
     </figure>
   </article>
   <!-- Main Title Column -->
-  <article id="middle-header" class="column is-narrow">
+  <article id="middle-header" class="column is-3">
     <div class="has-text-centered">
       <div class="title-dashboard">
   <p class="is-size-1 has-text-black has-text-weight-bold">
@@ -75,15 +77,15 @@
     </div>
   </article>
   <!-- Generic side pane, it is removed from all pages by default, and each page can display it again and update the contents as they wish. -->
-  <article id="right-side-header" class="column is-narrow">
+  <article id="right-side-header" class="column is-3">
     
   </article>
 </header>
     <!-- 3rd row - 7 days weather stats - This will be load up by JavaScript -->
 <div class="columns">
-  <div class="column is-6 is-offset-3">
-    <div class="columns daily-stats-container is-multiline is-centered">
-      <!-- Child elements will be appended by JavaScript by querySelector(".daily-stats-container") -->
+  <div class="column is-10 is-offset-1">
+    <div class="columns weather-stats-container is-multiline is-centered">
+      <!-- Child elements will be appended by JavaScript by querySelector(".weather-stats-container") -->
     </div>
   </div>
 </div>
@@ -93,7 +95,7 @@
     <div class="content has-text-centered">
       <img id="footer-img" class="image is-inline" src="/images/logo.png" alt="Whether weather logo">
       <p class="is-inline">
-        (Whether)Weather - Your.Weather
+        (Whether)Weather - Your Weather App Whenever And Wherever You Are!
       </p>
     </div>
   </div>

@@ -16,6 +16,7 @@ function addEventFaveStarsOnClick() {
   // Add event listeners in the favourite stars
   document.querySelectorAll("[id^=fave-]").forEach(star => {
     star.addEventListener('click', (event) => {
+      event.stopPropagation();
       const starElement = event.target;
       const starName = starElement.id.replace("fave-", "");
       const isAlreadyFavourite = localStorage.getItem(starName) === 'true';

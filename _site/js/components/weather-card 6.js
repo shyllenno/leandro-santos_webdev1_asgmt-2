@@ -17,7 +17,7 @@ whetherWeatherSpace.components.singleCard = (index) => {
     // Create the inner container "box"
     const elDivBox = document.createElement("div");
     // Insert the classes
-    elDivBox.className = "daily-stats-box box has-background-black has-text-white has-text-centered";
+    elDivBox.className = "weather-stats-card box has-background-black has-text-white has-text-centered";
 
     const elPWeekday = document.createElement("p");
     elPWeekday.className = "mb-3";

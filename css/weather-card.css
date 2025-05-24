@@ -1,0 +1,13 @@
+/* CSS to deal with general styles for the weather card */
+
+/* Sets the card width */
+.weather-stats-card {
+  width: 200px;
+}
+
+/* Stops the wrap on white-space */
+#max-wind,
+#max-wind,
+p[class^="card-wind-"] {
+  white-space: nowrap;
+}

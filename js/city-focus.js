@@ -35,11 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
     cityToLoad = lastCity;
   }
 
+  // Add the favourite star
+  addFaveStar();
+
   // Updated the ID for the favourite star
   document.getElementById("fave-").id = "fave-" + cityToLoad;
 
   // Sets the selected city to display
-  document.getElementById("select-city").value = cityToLoad;
+  document.getElementById("city").value = cityToLoad;
 
   // Marks the star checked if it is a favourite in the local storage
   getFaveStarsOnLoad();
@@ -56,12 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* Displaying the right-side-header panel, which holds the right now weather details */
   document.querySelector("#right-side-header").style.display = "initial";
+
 });
   
 /* Function to update the weather based on the user choice from the dropdown menu */
 function updateWeather(selectedCity) {
 
-   const urlmenu = document.getElementById('select-city');
+   const urlmenu = document.getElementById('city');
     urlmenu.onchange = function() {
       window.location = this.options[this.selectedIndex].value;
     };
@@ -125,9 +129,36 @@ Object.keys(weatherData)
 // Appends the card for each day of the week for 7 days inclusive of today
 function appendDailyStats() {
 
-  dailyForecastContainer = document.querySelector('.daily-stats-container');
+  dailyForecastContainer = document.querySelector('.weather-stats-container');
 
   for (let i = 0; i < 7; i++) {
     dailyForecastContainer.appendChild(whetherWeatherSpace.components.singleCard(i));
+  }
+}
+
+// Add a star icon
+function addFaveStar(){
+  const starContainer = document.querySelector(".layer-1-title");
+  starContainer.insertBefore(whetherWeatherSpace.components.starIcon(),starContainer.firstChild);
+}
+
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function dropdownFunction() {
+  const drop = document.getElementById("myDropdown");
+  drop.classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    const dropdowns = document.getElementsByClassName("dropdown-content");
+    for (let i = 0; i < dropdowns.length; i++) {
+      let openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
   }
 }

@@ -1,3 +1,7 @@
+/*
+    Bulma JS to deal with the navbar items and burger
+*/
+
 document.addEventListener('DOMContentLoaded', () => {
 
     // Get all "navbar-burger" elements

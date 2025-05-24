@@ -35,7 +35,7 @@ function addEventGoToCityOnClick() {
 }
 
 function appendFaveBox() {
-  dailyForecastContainer = document.querySelector('.daily-stats-container');
+  dailyForecastContainer = document.querySelector('.weather-stats-container');
 
   let faveCount = 0;
 
@@ -60,7 +60,7 @@ function appendFaveBox() {
 
 
 
-      const boxContainer = document.querySelector(".daily-stats-box:has(#card-title-" + key[0] + ")");
+      const boxContainer = document.querySelector(".weather-stats-card:has(#card-title-" + key[0] + ")");
       boxContainer.innerHTML = `
           <div id="star-container">
             <button>
@@ -76,6 +76,6 @@ function appendFaveBox() {
   });
 
   if (faveCount === 0) {
-    document.querySelector('.daily-stats-container').innerHTML = `<p id="no-fave">There are no cities marked as favourite yet!</p>`;
+    document.querySelector('.weather-stats-container').innerHTML = `<p id="no-fave">There are no cities marked as favourite yet!</p>`;
   }
 }

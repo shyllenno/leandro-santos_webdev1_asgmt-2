@@ -1,5 +1,13 @@
-@import url('city-focus.css');
+/*
+
+CSS to import all general styling sheets, which applies to all pages as default 
+
+Each page will though style their page as needed, and it won't interfere in the 
+general styling if a new page is added using a template
+
+*/
+
 @import url('footer.css');
 @import url('header.css');
 @import url("nav.css");
-@import url("preferences.css");
+@import url("weather-card.css");

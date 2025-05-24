@@ -1,6 +1,6 @@
 /* CSS to deal with city focus styles */
 
-.daily-stats-box {
+.weather-stats-card {
   width: 200px;
 }
 
@@ -25,7 +25,7 @@ fullhd: from 1408px
 */
 @media screen and (max-width: 768px) {
 
-  .daily-stats-box {
+  .weather-stats-card {
     width: 100% !important;
   }
 }
