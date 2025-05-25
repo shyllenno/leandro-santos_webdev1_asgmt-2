@@ -1,5 +1,5 @@
 // Star styles
-const favouriteStyle = 'fa-solid fa-star';
+const favouriteStyle = 'fa-solid fa-star checked';
 const notFavouriteStyle = 'fa-regular fa-star'
 
 // Marks the star checked if it is a favourite on load

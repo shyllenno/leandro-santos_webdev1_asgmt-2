@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Appends the toggle buttons to the set preference panel
   appendTogglePreferences();
 
+  clearEvent();
+
 });
 
 /*
@@ -29,7 +31,7 @@ function appendToggleCities() {
 
   const setFavouritesContainer = document.getElementById("set-favourites-container");
 
-  Object.entries(cities).sort().forEach( ([key, value]) => {
+  Object.entries(cities).sort().forEach(([key, value]) => {
     setFavouritesContainer.appendChild(whetherWeatherSpace.components.toggleButton(key, value));
   });
 };
@@ -57,7 +59,7 @@ function addEventSetFaveOnClick() {
 */
 
 // Function to append the toggle buttons to set preferences panel
-function appendTogglePreferences(){
+function appendTogglePreferences() {
   const setPreferencesContainer = document.getElementById("set-preferences-container");
 
   // Sets the Fahrenheit toggle button
@@ -68,12 +70,33 @@ function appendTogglePreferences(){
   fahrenheitToggle.checked = localStorage.getItem("pref-fahrenheit") === "true";
 
   // Adds the event listener on click
-  fahrenheitToggle.addEventListener("click", ()=>{localStorage.setItem("pref-fahrenheit", fahrenheitToggle.checked);});
+  fahrenheitToggle.addEventListener("click", () => { localStorage.setItem("pref-fahrenheit", fahrenheitToggle.checked); });
 
 
   // Sets the MPH toggle button
   setPreferencesContainer.appendChild(whetherWeatherSpace.components.toggleButton("mph", "Show wind speeds as MPH"));
   mphToggle = document.getElementById("cb-mph");
   mphToggle.checked = localStorage.getItem("pref-mph") === "true";
-  mphToggle.addEventListener("click", ()=>{localStorage.setItem("pref-mph", mphToggle.checked);});
+  mphToggle.addEventListener("click", () => { localStorage.setItem("pref-mph", mphToggle.checked); });
+}
+
+// Adds the clear event on both favourites and preferences panels
+function clearEvent() {
+  const clearEls = document.querySelectorAll("[id^=clear-]");
+  clearEls.forEach(clearEl => clearEl.addEventListener("click", () => {
+    if (clearEl.id.replace("clear-", "") === "preferences") {
+      Object.keys(localStorage).forEach(key => {
+        if (key.startsWith("pref-") && key !=="lastCity") {
+          localStorage.removeItem(key);
+        };
+      });
+    } else {
+      Object.keys(localStorage).forEach(key => {
+        if (!key.startsWith("pref-") && key !=="lastCity") {
+          localStorage.removeItem(key);
+        };
+      });
+    }
+    location.reload();
+  }));
 }

@@ -16,15 +16,14 @@
 #no-fave {
   font-size: 3em;
   margin-bottom: 50px;
+  text-align: center;
+
 }
 
-#star-container {
-  /*float: left;*/
+.title-dashboard>p{
+  justify-self: center;
 }
-
-
 i[id^="fave-"] {
-  /*padding-left: 15px;*/
   display: inline-block;
   width: 100%;
 }
@@ -49,7 +48,7 @@ fullhd: from 1408px
     margin-bottom: initial;
   }
 
-    .weather-stats-card {
+  .weather-stats-card {
     width: 100% !important;
   }
 }

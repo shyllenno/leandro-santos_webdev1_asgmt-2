@@ -1,7 +1,8 @@
 /* CSS to deal with header styles */
 
 .right-now-box {
-  min-width: 250px;
+  min-width: 275px;
+  white-space: nowrap;
 }
 
 .right-now-box>div {
@@ -119,6 +120,11 @@ fullhd: from 1408px
 
 #star-icon {
   padding-right: 25px;
+}
+
+#star-icon:has(.checked){
+  color: gold;
+  text-shadow: 0.0em 0.0em 0.2em #333;
 }
 
 #dropdown-icon {

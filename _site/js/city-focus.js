@@ -79,6 +79,7 @@ function updateWeather(selectedCity) {
   const maxWind = document.getElementById("max-wind");
   const city = document.getElementById('city');
   const weatherIcon = document.getElementById('weather-icon');
+  const windDirectionImage = document.getElementById("wind-direction-image");
 
   // Calls the function displayCityName to display the correct city name
   city.innerText = displayCityName[selectedCity + "_daily"];
@@ -86,6 +87,7 @@ function updateWeather(selectedCity) {
   maxTemp.innerText = getDegree(currentCityDataDaily.daily.temperature_2m_max[0]);
   maxWind.innerText = getSpeed(currentCityDataDaily.daily.wind_speed_10m_max[0]);
   weatherIcon.src = getWeatherIcon(currentCityDataDaily.daily.weather_code[0]);
+  windDirectionImage.src = getWindDirectionImage(currentCityDataDaily.daily.wind_direction_10m_dominant[0]);
 
   // Gets the current hour using DayJS
   const currentTime = dayjs();
