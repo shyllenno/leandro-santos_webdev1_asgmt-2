@@ -2,13 +2,11 @@
 layout: layout.njk
 script: /js/preferences.js
 link: /css/preferences.css
-middleHeader: preferences-middle-header.njk
-rightSideHeader: blank-right-side-header.njk
+middleHeader: header-partial-middle-preferences.njk
 ---
 <div class="columns">
   <div class="column is-6 is-offset-3 box">
     <div id="preferences-container" class="columns is-multiline is-centered">
-        
       <div id="set-favourites-container" class="column ">
         <p class="pref-subtitle">Set Favourites <span id="clear-favourites">Clear</span></p>
         <!-- Content loaded through JS -->
@@ -17,7 +15,6 @@ rightSideHeader: blank-right-side-header.njk
         <p class="pref-subtitle">Set Preferences <span id="clear-preferences">Clear</span></p>
         <!-- Content loaded through JS -->
       </div>
-      
     </div>
   </div>
 </div>

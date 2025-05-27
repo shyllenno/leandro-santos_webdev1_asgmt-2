@@ -69,6 +69,10 @@ function appendFaveBox() {
   });
 
 
+  // Gets the current hour using DayJS
+  const currentHour = dayjs().hour();
+
+
   Object.entries(cities).sort().forEach(([key, value]) => {
 
     const currentCityDataDaily = weatherData[key + "_daily"];
@@ -78,7 +82,7 @@ function appendFaveBox() {
     elDailyStatsWeekday.innerText = key.replace("_", " ").replace(/\b\w/g, char => char.toUpperCase());
 
     const elDailyStatsImg = document.querySelector(".card-img-" + key);
-    elDailyStatsImg.src = getWeatherIcon(currentCityDataDaily.daily.weather_code[0]);
+    elDailyStatsImg.src = getWeatherIcon(currentCityDataDaily.daily.weather_code[0], currentHour);
 
     const elDailyStatsTemp = document.querySelector(".card-temp-" + key);
     elDailyStatsTemp.innerText = getDegree(currentCityDataDaily.daily.temperature_2m_max[0]);

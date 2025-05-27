@@ -60,15 +60,22 @@ document.addEventListener("DOMContentLoaded", () => {
   /* Displaying the right-side-header panel, which holds the right now weather details */
   document.querySelector("#right-side-header").style.display = "initial";
 
+  // Add the click event to go to the daily table
+  addEventGoToDailyTable(cityToLoad);
+
 });
   
 /* Function to update the weather based on the user choice from the dropdown menu */
 function updateWeather(selectedCity) {
 
-   const urlmenu = document.getElementById('city');
-    urlmenu.onchange = function() {
-      window.location = this.options[this.selectedIndex].value;
-    };
+ const urlmenu = document.getElementById('city');
+  urlmenu.onchange = function() {
+    window.location = this.options[this.selectedIndex].value;
+  };
+
+  // Gets the current hour using DayJS
+  const currentTime = dayjs();
+  const currentHour = currentTime.hour();
 
   // Updates the local storage with the selected city from the dropdown menu
   localStorage.setItem("lastCity", selectedCity);
@@ -86,12 +93,8 @@ function updateWeather(selectedCity) {
 
   maxTemp.innerText = getDegree(currentCityDataDaily.daily.temperature_2m_max[0]);
   maxWind.innerText = getSpeed(currentCityDataDaily.daily.wind_speed_10m_max[0]);
-  weatherIcon.src = getWeatherIcon(currentCityDataDaily.daily.weather_code[0]);
+  weatherIcon.src = getWeatherIcon(currentCityDataDaily.daily.weather_code[0], currentHour);
   windDirectionImage.src = getWindDirectionImage(currentCityDataDaily.daily.wind_direction_10m_dominant[0]);
-
-  // Gets the current hour using DayJS
-  const currentTime = dayjs();
-  const currentHour = currentTime.hour();
 
   // Gather data for hourly variables, the RIGHT NOW window stats
   const currentCityDataHourly = weatherData[selectedCity + '_hourly'];
@@ -108,7 +111,7 @@ function updateWeather(selectedCity) {
     elDailyStatsWeekday.innerText = currentTime.add(i, "day").format("dddd");
 
     const elDailyStatsImg = document.querySelector(".card-img-" + i);
-    elDailyStatsImg.src = getWeatherIcon(currentCityDataDaily.daily.weather_code[i]);
+    elDailyStatsImg.src = getWeatherIcon(currentCityDataDaily.daily.weather_code[i], currentHour);
 
     const elDailyStatsTemp = document.querySelector(".card-temp-" + i);
     elDailyStatsTemp.innerText = getDegree(currentCityDataDaily.daily.temperature_2m_max[i]);
@@ -137,6 +140,29 @@ function appendDailyStats() {
     dailyForecastContainer.appendChild(whetherWeatherSpace.components.singleCard(i));
   }
 }
+
+// Add event listener to go to the daily-table page
+function addEventGoToDailyTable(cityToLoad){
+  
+  // Event listener for each weekday card
+  const cards = document.querySelectorAll(".weather-stats-card");
+
+  cards.forEach(card => {
+
+  const weekdayCardName = card.querySelector("[id^=card-title-]").id.replace("card-title-", "");
+    card.addEventListener("click", () => {
+      window.location = "/daily-table/?city=" + cityToLoad + "&weekday=" + weekdayCardName;
+    });
+  });
+
+  // Event listner to the right-now-panel
+  document.querySelector(".right-now-box").addEventListener("click", () => {
+    window.location = "/daily-table/?city=" + cityToLoad + "&weekday=0";
+  });
+
+}
+
+
 
 // Add a star icon
 function addFaveStar(){

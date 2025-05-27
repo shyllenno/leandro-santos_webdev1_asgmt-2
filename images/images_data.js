@@ -43,13 +43,11 @@ const weatherImagesNight = {
 }
 
 // Function to retrive the icon address based on the weather code passed as argument
-function getWeatherIcon(weatherCode) {
+function getWeatherIcon(weatherCode, hour) {
   let weatherCodeIcon;
 
-  const hourNow = dayjs().hour();
-
   // This will select the appropriated collection of key-value pairs based on the time of the day
-  for (const [key, value] of Object.entries(hourNow >= 4 && hourNow <= 18 ? weatherImagesDay : weatherImagesNight)) {
+  for (const [key, value] of Object.entries(hour >= 7 && hour < 18 ? weatherImagesDay : weatherImagesNight)) {
     if (weatherCode <= parseInt(key)) {
       weatherCodeIcon = value;
       break;

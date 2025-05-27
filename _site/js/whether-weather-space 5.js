@@ -1,4 +1,0 @@
-window.whetherWeatherSpace = {
-  components: {},
-  dataStore: {}
-}

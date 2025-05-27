@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
   
-  <link rel="stylesheet" type="text/css" href="/css/city-focus.css ">
+    <link rel="stylesheet" type="text/css" href="/css/city-focus.css ">
   
   <script type="text/javascript" src="/js/bulma.js"></script>
   <script type="text/javascript" src="/js/nav.js"></script>
@@ -24,7 +24,7 @@
   <script type="text/javascript" src="/js/components/toggle-button.js"></script>
   <script type="text/javascript" src="/js/components/star-icon.js"></script>
   
-  <script src="/js/city-focus.js"></script>
+    <script src="/js/city-focus.js"></script>
   
 </head>
 
@@ -68,7 +68,8 @@
   <!-- Main Title Column -->
   <article id="middle-header" class="column is-3">
     <div class="has-text-centered">
-      <div class="title-with-dropdown">
+      
+        <div class="title-with-dropdown">
   <p class="layer-1-title is-size-1 has-text-black has-text-weight-bold">
     <span id="city"></span>
     <span id="dropdown-icon" class="icon is-small is-size-5">
@@ -90,11 +91,13 @@
   </div>
 </div>
 <p class="layer-2-subtitle is-block is-size-1 has-text-black">Today</p>
+      
     </div>
   </article>
   <!-- Generic side pane, it is removed from all pages by default, and each page can display it again and update the contents as they wish. -->
   <article id="right-side-header" class="column is-3">
-    <div class="right-now-box box has-text-centered has-background-warning-light has-text-black">
+    
+      <div class="right-now-box box has-text-centered has-background-warning-light has-text-black">
   <p class="is-size-4 has-text-black">Right Now <span id="right-now-time"></span></p>
   <div class="columns is-2">
     <!-- Right Now Temp Column -->
@@ -109,9 +112,10 @@
     </div>
   </div>
 </div>
+    
   </article>
 </header>
-    <!-- 2nd row - Today's weather with icon, max temp and max wind stats -->
+    <!-- Today's weather with icon, max temp and max wind stats -->
 <div class="columns">
   <div class="column is-three-fifths is-offset-one-fifth">
     <div class="columns is-vcentered">
@@ -140,7 +144,7 @@
       <!-- Today's Wind Direction Image -->
       <div class="column has-text-centered">
         <div>
-          <figure class="image is-inline-block is-96x96">
+          <figure class="image is-inline-block">
             <img id="wind-direction-image" alt="Wind Cardinal Direction Image">
           </figure>
         </div>
@@ -148,7 +152,7 @@
     </div>
   </div>
 </div>
-<!-- 3rd row - 7 days weather stats - This will be load up by JavaScript -->
+<!-- 7 days weather stats - This will be load up by JavaScript -->
 <div class="columns">
   <div class="column is-10 is-offset-1">
     <div class="columns weather-stats-container is-multiline is-centered">

@@ -2,10 +2,10 @@
 layout: layout.njk
 script: /js/city-focus.js
 link: /css/city-focus.css
-middleHeader: city-focus-middle-header.njk
-rightSideHeader: city-focus-right-side-header.njk
+middleHeader: header-partial-middle-city-focus.njk
+rightSideHeader: header-partial-right-side-city-focus.njk
 ---
-<!-- 2nd row - Today's weather with icon, max temp and max wind stats -->
+<!-- Today's weather with icon, max temp and max wind stats -->
 <div class="columns">
   <div class="column is-three-fifths is-offset-one-fifth">
     <div class="columns is-vcentered">
@@ -34,7 +34,7 @@ rightSideHeader: city-focus-right-side-header.njk
       <!-- Today's Wind Direction Image -->
       <div class="column has-text-centered">
         <div>
-          <figure class="image is-inline-block is-96x96">
+          <figure class="image is-inline-block">
             <img id="wind-direction-image" alt="Wind Cardinal Direction Image">
           </figure>
         </div>
@@ -42,7 +42,7 @@ rightSideHeader: city-focus-right-side-header.njk
     </div>
   </div>
 </div>
-<!-- 3rd row - 7 days weather stats - This will be load up by JavaScript -->
+<!-- 7 days weather stats - This will be load up by JavaScript -->
 <div class="columns">
   <div class="column is-10 is-offset-1">
     <div class="columns weather-stats-container is-multiline is-centered">

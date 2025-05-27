@@ -5,6 +5,10 @@ position: absolute;
 top: 40%;
 }
 
+#city, .weather-stats-card, .right-now-box {
+  cursor: pointer;
+}
+
 /*
 Media query to fix few formatting on the multiline columns
 
