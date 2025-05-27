@@ -107,6 +107,6 @@ function appendFaveBox() {
   });
 
   if (faveCount === 0) {
-    document.querySelector('.weather-stats-container').innerHTML = `<p id="no-fave">There are no cities marked as favourite yet!</p>`;
+    document.querySelector('.weather-stats-container').innerHTML = `<h3 id="no-fave">There are no cities marked as favourite yet!</h3>`;
   }
 }
