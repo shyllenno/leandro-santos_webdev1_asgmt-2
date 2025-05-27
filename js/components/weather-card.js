@@ -30,6 +30,7 @@ whetherWeatherSpace.components.singleCard = (index) => {
 
   const elImg = document.createElement("img");
   elImg.className = "card-img-" + index;
+  elImg.setAttribute("alt", "Forecast image icon");
 
   const elDivDailyStats = document.createElement("div");
   elDivDailyStats.className = "columns is-vcentered";

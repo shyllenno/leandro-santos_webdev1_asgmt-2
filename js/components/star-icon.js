@@ -13,6 +13,7 @@ whetherWeatherSpace.components.starIcon = () => {
 
   // Create the inner container using a button
   const buttonEl = document.createElement("button");
+  buttonEl.setAttribute("aria-label","Button to bookmark a card as favourite");
 
   // Create the span element
   const spanEl = document.createElement("span");

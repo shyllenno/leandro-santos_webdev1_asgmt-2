@@ -33,6 +33,7 @@
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
       <img src="/images/logo.png" alt="Logo" />
+      <p id="nav-title" class="has-text-white">(Whether)Weather</p>
     </a>
     <span class="navbar-burger has-background-black" data-target="navbarMenu" aria-expanded="false">
       <span aria-hidden="true"></span>
@@ -62,7 +63,7 @@
   <!-- Logo column -->
   <article id="left-side-header" class="column is-3">
     <figure class="image is-inline-block ">
-      <img id="logo-hero" src="/images/logo.png">
+      <img id="logo-hero" src="/images/logo.png" alt="Logo hero image">
     </figure>
   </article>
   <!-- Main Title Column -->
@@ -70,12 +71,12 @@
     <div class="has-text-centered">
       
       <div class="title-with-dropdown">
-  <p class="layer-1-title is-size-1 has-text-black has-text-weight-bold">
+  <h1 class="layer-1-title is-size-1 has-text-black has-text-weight-bold">
     <span id="city"></span>
     <span id="dropdown-icon" class="icon is-small is-size-5">
       <i onclick="dropdownFunction()" class="fas fa-angle-down dropbtn" aria-hidden="true"></i>
     </span>
-  </p>
+  </h1>
   <div class="dropdown">
     <div id="myDropdown" class="dropdown-content">
       <a href="/?city=amsterdam">Amsterdam</a>
@@ -90,7 +91,7 @@
     </div>
   </div>
 </div>
-<p class="layer-2-subtitle is-block is-size-1 has-text-black">Today</p>
+<h2 class="layer-2-subtitle is-block is-size-1 has-text-black">Today</h2>
       
     </div>
   </article>
