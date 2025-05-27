@@ -20,9 +20,10 @@
 
 }
 
-.title-dashboard>p{
+.title-dashboard>p {
   justify-self: center;
 }
+
 i[id^="fave-"] {
   display: inline-block;
   width: 100%;

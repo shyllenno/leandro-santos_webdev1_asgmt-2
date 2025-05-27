@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Appends the toggle buttons to the set preference panel
   appendTogglePreferences();
 
-  clearEvent();
+  clearEvents();
 
 });
 
@@ -81,22 +81,30 @@ function appendTogglePreferences() {
 }
 
 // Adds the clear event on both favourites and preferences panels
-function clearEvent() {
+function clearEvents() {
+
+  // Sets the clear buttons
   const clearEls = document.querySelectorAll("[id^=clear-]");
   clearEls.forEach(clearEl => clearEl.addEventListener("click", () => {
     if (clearEl.id.replace("clear-", "") === "preferences") {
       Object.keys(localStorage).forEach(key => {
-        if (key.startsWith("pref-") && key !=="lastCity") {
+        if (key.startsWith("pref-") && key !== "lastCity") {
           localStorage.removeItem(key);
         };
       });
     } else {
       Object.keys(localStorage).forEach(key => {
-        if (!key.startsWith("pref-") && key !=="lastCity") {
+        if (!key.startsWith("pref-") && key !== "lastCity") {
           localStorage.removeItem(key);
         };
       });
     }
     location.reload();
   }));
+
+  // Sets the reset cockies button
+  document.getElementById("reset-cockies").addEventListener("click", () => {
+    localStorage.clear();
+    location.reload();
+  });
 }

@@ -63,12 +63,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add the click event to go to the daily table
   addEventGoToDailyTable(cityToLoad);
 
+  // Append the Sunrise and Sunset to the cards
+  appendSunriseSunset(cityToLoad);
+
 });
-  
+
 /* Function to update the weather based on the user choice from the dropdown menu */
 function updateWeather(selectedCity) {
 
- const urlmenu = document.getElementById('city');
+  const urlmenu = document.getElementById('city');
   urlmenu.onchange = function() {
     window.location = this.options[this.selectedIndex].value;
   };
@@ -118,7 +121,7 @@ function updateWeather(selectedCity) {
 
     const elDailyStatsWind = document.querySelector(".card-wind-" + i);
     elDailyStatsWind.innerText = getSpeed(currentCityDataDaily.daily.wind_speed_10m_max[i]);
-    
+
   }
 }
 
@@ -142,14 +145,14 @@ function appendDailyStats() {
 }
 
 // Add event listener to go to the daily-table page
-function addEventGoToDailyTable(cityToLoad){
-  
+function addEventGoToDailyTable(cityToLoad) {
+
   // Event listener for each weekday card
   const cards = document.querySelectorAll(".weather-stats-card");
 
   cards.forEach(card => {
 
-  const weekdayCardName = card.querySelector("[id^=card-title-]").id.replace("card-title-", "");
+    const weekdayCardName = card.querySelector("[id^=card-title-]").id.replace("card-title-", "");
     card.addEventListener("click", () => {
       window.location = "/daily-table/?city=" + cityToLoad + "&weekday=" + weekdayCardName;
     });
@@ -165,9 +168,9 @@ function addEventGoToDailyTable(cityToLoad){
 
 
 // Add a star icon
-function addFaveStar(){
+function addFaveStar() {
   const starContainer = document.querySelector(".layer-1-title");
-  starContainer.insertBefore(whetherWeatherSpace.components.starIcon(),starContainer.firstChild);
+  starContainer.insertBefore(whetherWeatherSpace.components.starIcon(), starContainer.firstChild);
 }
 
 
@@ -189,4 +192,24 @@ window.onclick = function(event) {
       }
     }
   }
+}
+
+// Append the sunrise and sunset to the weather daily cards
+function appendSunriseSunset(city) {
+  const cards = document.querySelectorAll(".weather-stats-card");
+
+  const cityDataDaily = weatherData[city + '_daily'];
+
+  cards.forEach(card => {
+
+    const cardNumber = card.querySelector("[id^=card-title-]").id.replace("card-title-", "");
+
+    const regexTodayHour = new RegExp(`TodayT|Today\\+${cardNumber}T`, "g");
+    const sunriseTime = cityDataDaily.daily.sunrise[cardNumber].replace(regexTodayHour, "");
+    const sunsetTime = cityDataDaily.daily.sunset[cardNumber].replace(regexTodayHour, "");
+    card.innerHTML += `<div class="sunrise-container is-flex"><img src="/images/sunrise.svg" alt="Sunrise icon" class="image is-32x32"><p>${sunriseTime}h</p></div>`
+    card.innerHTML += `<div class="sunset-container is-flex"><img src="/images/sunset.svg" alt="Sunset icon" class="image is-32x32"><p>${sunsetTime}h</p></div>`
+
+  });
+
 }

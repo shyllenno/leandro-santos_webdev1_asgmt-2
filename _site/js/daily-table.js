@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
+
 
   /* If the page comes from the dashboard, it will come with url parameters */
   const urlParams = new URLSearchParams(window.location.search);
@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Updates the page title with the city name
   document.querySelector("#city").innerHTML = city.replace("_", " ").replace(/\b\w/g, char => char.toUpperCase());
-  
+
   // Updates the page subtitle with the week day name
   document.querySelector("#day").innerHTML = dayjs().add(weekday, "day").format("dddd");
 
@@ -25,17 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const tableBody = document.querySelector("tbody");
 
   const tableRows = [];
-  const regexTodayHour = new RegExp(`TodayT|Today\\+${weekday}T`,"g");
+  const regexTodayHour = new RegExp(`TodayT|Today\\+${weekday}T`, "g");
   let strHour;
 
-  for(let i = weekday * 24; i < weekday * 24 + 24; i++){
+  for (let i = weekday * 24; i < weekday * 24 + 24; i++) {
     strHour = cityDataHourly.hourly.time[i].replace(regexTodayHour, "");
-    intHour = parseInt(strHour.substring(0,2),10);
-        tableRows[i] = 
-        `<tr>
+    intHour = parseInt(strHour.substring(0, 2), 10);
+    tableRows[i] =
+      `<tr>
             <td>${strHour}</td>
             <td><img src="${getWeatherIcon(cityDataHourly.hourly.weather_code[i], intHour)}" alt="Weather forecast image" class="image is-48x48"/></td>
             <td>${getDegree(cityDataHourly.hourly.temperature_2m[i])}</td>
+            <td>${getDegree(cityDataHourly.hourly.apparent_temperature[i])}</td>
             <td>${getSpeed(cityDataHourly.hourly.wind_speed_10m[i])}</td>
         </tr>`
   }
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Append main container with a table
   const container = document.querySelector(".daily-stats-container");
 
-  container.innerHTML = 
+  container.innerHTML =
     `<div class="column is-8">
       <table class="table is-fullwidth">
         <thead>
@@ -51,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <th>Time</th>
             <th>Forecast</th>
             <th>Temperature</th>
+            <th>Feels Like</th>
             <th>Wind</th>
           </tr>
         </thead>

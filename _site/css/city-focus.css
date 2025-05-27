@@ -1,13 +1,21 @@
 /* CSS to deal with city focus styles */
 
-i[id^="fave-"]{
-position: absolute;
-top: 40%;
+i[id^="fave-"] {
+  position: absolute;
+  top: 40%;
 }
 
-#city, .weather-stats-card, .right-now-box {
+.weather-stats-card,
+.right-now-box {
   cursor: pointer;
 }
+
+.sunrise-container,
+.sunset-container {
+  justify-content: space-around;
+  align-items: center;
+}
+
 
 /*
 Media query to fix few formatting on the multiline columns

@@ -3,7 +3,7 @@
 CSS to import all general styling sheets, which applies to all pages as default 
 
 Each page will though style their page as needed, and it won't interfere in the 
-general styling if a new page is added using a template
+general styling as each page will pass their stylesheets through the nunjucks
 
 */
 
