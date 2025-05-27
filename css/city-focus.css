@@ -5,7 +5,7 @@ position: absolute;
 top: 40%;
 }
 
-#city, .weather-stats-card, .right-now-box {
+.weather-stats-card, .right-now-box {
   cursor: pointer;
 }
 
