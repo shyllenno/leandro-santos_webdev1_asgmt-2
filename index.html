@@ -6,47 +6,47 @@ middleHeader: header-partial-middle-city-focus.njk
 rightSideHeader: header-partial-right-side-city-focus.njk
 ---
 <!-- Today's weather with icon, max temp and max wind stats -->
-<div class="columns">
+<section class="columns">
   <div class="column is-three-fifths is-offset-one-fifth">
     <div class="columns is-vcentered">
       <!-- Today's Weather Icon -->
-      <div class="column has-text-centered">
+      <article class="column has-text-centered">
         <div>
           <figure class="image is-inline-block ">
             <img id="weather-icon" alt="Weather forecast icon">
           </figure>
         </div>
-      </div>
+      </article>
       <!-- Today's Weather Temperature -->
-      <div class="column">
+      <article class="column">
         <div class="has-text-centered">
           <p class="is-size-3 has-text-black">Max Temp</p>
           <p class="is-size-3 has-text-black"><span id="max-temp"></span></p>
         </div>
-      </div>
+      </article>
       <!-- Today's Weather Wind -->
-      <div class="column">
+      <article class="column">
         <div class="has-text-centered">
           <p class="is-size-3 has-text-black">Max Wind</p>
           <p class="is-size-3 has-text-black"><span id=max-wind></span></p>
         </div>
-      </div>
+      </article>
       <!-- Today's Wind Direction Image -->
-      <div class="column has-text-centered">
+      <article class="column has-text-centered">
         <div>
           <figure class="image is-inline-block">
             <img id="wind-direction-image" alt="Wind Cardinal Direction Image">
           </figure>
         </div>
-      </div>
+      </article>
     </div>
   </div>
-</div>
+</section>
 <!-- 7 days weather stats - This will be load up by JavaScript -->
-<div class="columns">
+<section class="columns">
   <div class="column is-10 is-offset-1">
     <div class="columns weather-stats-container is-multiline is-centered">
       <!-- Child elements will be appended by JavaScript by querySelector(".weather-stats-container") -->
     </div>
   </div>
-</div>
+</section>
