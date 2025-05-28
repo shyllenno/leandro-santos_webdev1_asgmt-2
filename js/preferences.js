@@ -78,6 +78,15 @@ function appendTogglePreferences() {
   mphToggle = document.getElementById("cb-mph");
   mphToggle.checked = localStorage.getItem("pref-mph") === "true";
   mphToggle.addEventListener("click", () => { localStorage.setItem("pref-mph", mphToggle.checked); });
+
+
+  // Sets the show sunrise-sunset toggle
+  setPreferencesContainer.appendChild(whetherWeatherSpace.components.toggleButton("ux-sunrise-sunset-hide", "Hide sunrise & sunset"));
+  uxSunriseSunsetToggle = document.getElementById("cb-ux-sunrise-sunset-hide");
+  uxSunriseSunsetToggle.checked = localStorage.getItem("pref-ux-hide-sunrise-sunset") === "true";
+  uxSunriseSunsetToggle.addEventListener("click", () => {
+    localStorage.setItem("pref-ux-hide-sunrise-sunset", uxSunriseSunsetToggle.checked);
+  });
 }
 
 // Adds the clear event on both favourites and preferences panels

@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   addEventGoToDailyTable(cityToLoad);
 
   // Append the Sunrise and Sunset to the cards
-  appendSunriseSunset(cityToLoad);
+  appendFeelslikeSunriseSunset(cityToLoad);
 
 });
 
@@ -194,8 +194,9 @@ window.onclick = function(event) {
   }
 }
 
-// Append the sunrise and sunset to the weather daily cards
-function appendSunriseSunset(city) {
+
+// Append the feels like, sunrise and sunset elements to the weather daily cards
+function appendFeelslikeSunriseSunset(city) {
   const cards = document.querySelectorAll(".weather-stats-card");
 
   const cityDataDaily = weatherData[city + '_daily'];
@@ -207,9 +208,34 @@ function appendSunriseSunset(city) {
     const regexTodayHour = new RegExp(`TodayT|Today\\+${cardNumber}T`, "g");
     const sunriseTime = cityDataDaily.daily.sunrise[cardNumber].replace(regexTodayHour, "");
     const sunsetTime = cityDataDaily.daily.sunset[cardNumber].replace(regexTodayHour, "");
-    card.innerHTML += `<div class="sunrise-container is-flex"><img src="/images/sunrise.svg" alt="Sunrise icon" class="image is-32x32"><p>${sunriseTime}h</p></div>`
-    card.innerHTML += `<div class="sunset-container is-flex"><img src="/images/sunset.svg" alt="Sunset icon" class="image is-32x32"><p>${sunsetTime}h</p></div>`
 
+    const feelsLike = getDegree(cityDataDaily.daily.apparent_temperature_max[cardNumber]);
+
+    card.innerHTML += `<div class="feels-like-container is-flex">
+                        <p>Feels Like</p>
+                        <p>${feelsLike}</p>
+                      </div>`;
+
+    card.innerHTML += `<div class="sunrise-sunset-container">
+                        <div class="sunrise-container is-flex">
+                          <img src="/images/sunrise.svg" alt="Sunrise icon" class="image is-32x32">
+                          <p>${sunriseTime}h</p>
+                        </div>
+                        <div class="sunset-container is-flex">
+                          <img src="/images/sunset.svg" alt="Sunset icon" class="image is-32x32">
+                          <p>${sunsetTime}h</p>
+                        </div>
+                      </div>`;
   });
 
+  /* Sets the visibility based on the preferences stored in the local storage
+      As default, it shows the sunrise and sunset items */
+  sunriseSunsetEls = document.querySelectorAll(".sunrise-sunset-container");
+  sunriseSunsetEls.forEach(el => {
+    if (localStorage.getItem("pref-ux-hide-sunrise-sunset") === "true") {
+      el.style.display = "none";
+    } else {
+      el.style.display = "block";
+    }
+  });
 }

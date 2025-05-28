@@ -11,9 +11,14 @@ i[id^="fave-"] {
 }
 
 .sunrise-container,
-.sunset-container {
+.sunset-container,
+.feels-like-container {
   justify-content: space-around;
   align-items: center;
+}
+
+.sunrise-sunset-container {
+  margin-top: 1em;
 }
 
 
