@@ -1,0 +1,221 @@
+<h1>Welcome to the (Whether)Weather - Your Weather App Whenever and Wherever You Are!</h1>
+<h2>Overview</h2>
+<p>The (Whether)Weather App provides an easy all-in-one weather forecast, allowing the user to bookmark favourite cities to always keep an eye on his/her dashboard.</p>
+<p>This website was developed for the second assignment of the <em><strong>Higher Diploma in Computer Science</strong></em> course of the <em><strong>South East Technological University</strong></em> – SETU, applying the learnings of HTML, CSS, and JavaScript learnt through the <em><strong>Web Development 1</strong></em> module, lectured by <em><strong>John Rellis</strong></em>.</p>
+<p>However, this project tries to mimic a real website, it loads a hardcoded data, meaning that the values shown are outdated, as we haven't covered yet how to request and use data out of the internet.</p>
+<p>Several tools were applied to the project to make it compliant with the W3C specifications and accessibility guidelines (blind/colour contrast only).</p>
+<p>Due to limitations and knowledge, this project still has &quot;room&quot; for lots of improvements.</p>
+<h2>Usage &amp; Features</h2>
+<p>The website is accessable through https://leandro-santos-webdev1-asgmt-2.netlify.app/</p>
+<p>The website contains 3 main pages, <em><strong>&quot;Home&quot;</strong></em>, <em><strong>&quot;Dashboard&quot;</strong></em>, and <em><strong>&quot;Settings&quot;</strong></em>, which can be accessed through the navigation bar, and 1 sub-page <em><strong>&quot;daily-table&quot;</strong></em>, which is accessed through one of the 7-days cards in the home page.</p>
+<p><strong>Pages overview</strong></p>
+<ul>
+<li>The <em><strong>&quot;Home&quot;</strong></em> page features a single city forecast details (city-focus), showing the maximum temperature for the day with the pertinent icon for the forecast and the maximum wind for the day with the pertinent wind direction icon. It also shows the forecast for the current time (&quot;maximum&quot; temperature &amp; wind) in the &quot;Right Now&quot; pane on the right, and the forecast for the next 6 days, including today, displayed in a card format one for each day, each card display the weekday name, the forecast icon, the &quot;maximum&quot; temperature and wind, the feels-like temperature, and the sunrise and sunset time, each card being clickable, which will bring the user to the daily-table page for the specific day.</li>
+<li>
+<ul>
+<li>On the first load, it will load the default:</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>The forecast data for Amsterdam, and thereafter , it will load either the last city or the city passed through the url parameter. Cities can be selected/changed through the dropdown menu. The user can also bookmark the current city, which will then be displayed in the &quot;Dashboard&quot; page.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>Temperatures in Celsius Degrees (it can be changed to Fahrenheit Degrees later);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>Wind speeds in Km/h (it can be changed to MPH later);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>Sunrise and Sunset time (it can be hidden later);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The <em><strong>&quot;Dashboard&quot;</strong></em> page where bookmarked cities will be shown, in a card display style and ordered alphabetically, showing the City name, and the forecast details &quot;maximum&quot; temperature and wind for the day. Each card is clickable, which will brind the user to the city-focus (home) page for the selected city. Directly from the Dashboard, the user can also unmarked the city as favourite.</li>
+<li>
+<ul>
+<li>The <em><strong>Settings</strong></em> page has 2 sections of settings, the first one to set the favourite cities, and the second one to set the preferences such as switch to Fahrenheit, MPH, and hide the sunrise and sunset from the focus-city (home) page. The setting page also allows for partial and full resets, the user can &quot;clear&quot; only the favourites, or the preferences, and &quot;reset cockies&quot;, which will clear all the local storage.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>The <em><strong>&quot;daily-table&quot;</strong></em> page, which is a sub-page from the &quot;City-Focus (home)&quot; page, which is accessible through one of the 7-days cards and also through the right now pane, will display in a table format the forecast data for the full day, from time &quot;00:00&quot; to &quot;23:00&quot;, including the forecast icom, the &quot;maximum&quot; temperature, feels like temperature, and &quot;maximum&quot; wind speed.</li>
+</ul>
+</li>
+</ul>
+<p>Note: The maximum words above double-quoted means that the word itself was dropped for the sake of saving space.</p>
+<h2>Technologies Used</h2>
+<p>Frontend: HTML, CSS, Bulma, 11ty/Eleventy, Nunjucks</p>
+<p>Backend: JavaScript</p>
+<p>Hosting: Netlify  pushed through GitHub</p>
+<p>Validation tools:</p>
+<ul>
+<li><a href="https://validator.w3.org/">W3C Markup Validation Service</a></li>
+<li><a href="http://jigsaw.w3.org/css-validator/">W3C CSS Validation Service</a></li>
+<li><a href="https://wave.webaim.org/extension/">WAVE Web Accessibility Evaluation Tool (Google extension)</a></li>
+<li><a href="https://www.accessibilitychecker.org/">Accessibility Checker</a></li>
+</ul>
+<h2>Contributors</h2>
+<p>Leandro de Oliveira Santos - HDip in CS Student at SETU.</p>
+<h2>Acknowledgments</h2>
+<p>This README.md followed the template from the Github user &quot;comp1800&quot; – <a href="https://github.com/comp1800/web_template">web_template</a>. Thank you, comp1800.<br>
+Thank you to all that have been listed in this project reference.<br>
+Thank you, Professor <em><strong>John Rellis</strong></em>, for the incredible lectures.</p>
+<h2>Limitations and Future Work</h2>
+<h3>Limitations</h3>
+<p>This website was 100% developed based on a screen resolution of <strong>1920 x 1080 pixels (FHD)</strong>, as this resolution is the most commom. Although, the assignment specifications didn't mention about the need of responsiveness; this project uses Bulma framework to surcuven the CSS, Bulma does implements the responsiviness by itself, however, it might happen that few styles don't show properly in smaller screens, this project tried to captured any unintended behaviour using the media query in the CSS stylesheets.</p>
+<p>Also, during the validations, errors coming from the use of Bulma framework were found, those errors were not treated, therefore, they might be thrown out again by validation services.</p>
+<h3>Future Work</h3>
+<p>This project can be improved in many ways, for example:</p>
+<ul>
+<li>Fetch real-time data for any city.</li>
+<li>Add more graphical data, for example, showing a graph for the hourly weather forecast.</li>
+<li>Add a month-data forecast.</li>
+<li>Add more user interactions like the ability to show/hide the sunrise-sunset, for example, giving the user to show/hide the feel like element, or change the icons, or theme, and lots more...</li>
+</ul>
+<h2>License</h2>
+<p>There is no license attributed to this project, but this project is live on <a href="https://leandro-santos-webdev1-asgmt-2.netlify.app/">Netlify</a> and on my <a href="https://github.com/shyllenno/leandro-santos_webdev1_asgmt-2">GitHub</a> account.</p>
+<h2>Project Structure</h2>
+<pre><code>(Whether)Weather App
+│   daily-table.html
+│   dashboard.html
+│   index.html
+│   preferences.html
+│   README.md
+│
+├───css
+│       city-focus.css
+│       daily-table.css
+│       dashboard.css
+│       footer.css
+│       header.css
+│       nav.css
+│       preferences.css
+│       styles.css
+│       weather-card.css
+│
+├───data
+│       amsterdam_daily.json
+│       amsterdam_hourly.json
+│       berlin_daily.json
+│       berlin_hourly.json
+│       complete_data.json
+│       copenhagen_daily.json
+│       copenhagen_hourly.json
+│       cork_daily.json
+│       cork_hourly.json
+│       data-definition.pdf
+│       new_york_daily.json
+│       new_york_hourly.json
+│       paris_daily.json
+│       paris_hourly.json
+│       san_francisco_daily.json
+│       san_francisco_hourly.json
+│       test.html
+│       tromso_daily.json
+│       tromso_hourly.json
+│       waterford_daily.json
+│       waterford_hourly.json
+│       weather_data.js
+│
+├───images
+│       0-day.svg
+│       0-night.svg
+│       2-day.svg
+│       2-night.svg
+│       3.svg
+│       45-day.svg
+│       45-night.svg
+│       48-day.svg
+│       48-night.svg
+│       53-day.svg
+│       53-night.svg
+│       57.svg
+│       63-day.svg
+│       63-night.svg
+│       65.svg
+│       77.svg
+│       81-day.svg
+│       81-night.svg
+│       82.svg
+│       85-day.svg
+│       85-night.svg
+│       86.svg
+│       95-day.svg
+│       95-night.svg
+│       95.svg
+│       96-day.svg
+│       96-night.svg
+│       99.svg
+│       images_data.js
+│       logo.png
+│       sunrise.svg
+│       sunset.svg
+│       windD--E.png
+│       windD--ENE.png
+│       windD--ESE.png
+│       windD--N.png
+│       windD--NE.png
+│       windD--NNE.png
+│       windD--NNW.png
+│       windD--NW.png
+│       windD--S.png
+│       windD--SE.png
+│       windD--SSE.png
+│       windD--SSW.png
+│       windD--SW.png
+│       windD--W.png
+│       windD--WNW.png
+│       windD--WSW.png
+│
+└───js
+    │   bulma.js
+    │   city-focus.js
+    │   conversions.js
+    │   daily-table.js
+    │   dashboard.js
+    │   nav.js
+    │   preferences.js
+    │   starFavorite.js
+    │   whether-weather-space.js
+    │
+    └───components
+            star-icon.js
+            toggle-button.js
+            weather-card.js
+</code></pre>
+<h2>References</h2>
+<p>[The Weather is Nice Today icon pack] url(https://www.iconfinder.com/iconsets/the-weather-is-nice-today)</p>
+<p>[Maps - Cardinais Directions] url(https://icons8.com/icons/set/maps--style-ios)</p>
+<p>[How to center image in Bulma] url(https://stackoverflow.com/questions/48277473/center-image-in-bulma)</p>
+<p>[How to create and append HTML elements with JavaScript] url(https://www.w3schools.com/jsref/met_document_createelement.asp)</p>
+<p>[How TO - Toggle Switch] url(https://www.w3schools.com/howto/howto_css_switch.asp)</p>
+<p>[How to deploy to Netlify using GitHub] url(https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)</p>
+<p>[How to format number to 2 decimal places in JavaScript] url(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed)</p>
+<p>[How to Stack Elements in CSS] url(https://css-tricks.com/how-to-stack-elements-in-css/)</p>
+<p>[How to make overlapping click events to stop on the first event] url(https://stackoverflow.com/questions/23490103/two-onclick-events-overlap)</p>
+<p>[Stop Propagation of Events] url(https://www.javascripttutorial.net/dom/events/stop-propagation-of-events/)</p>
+<p>[How TO - Clickable Dropdown] url(https://www.w3schools.com/howto/howto_js_dropdown.asp)</p>
+<p>[Bulma: how to nicely mark in navbar the current tab of website I'm in?] url(https://stackoverflow.com/questions/68240803/bulma-how-to-nicely-mark-in-navbar-the-current-tab-of-website-im-in)</p>
+<p>[Toggle (Hide/Show) an Element] url(https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp)</p>
